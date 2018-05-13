@@ -4,7 +4,7 @@ var d = 0;
 var server_status = new Array();
 function timeSince(date) {
 	if(date == 0)
-		return "从未.";
+		return "從未.";
 
 	var seconds = Math.floor((new Date() - date) / 1000);
 	var interval = Math.floor(seconds / 31536000);
@@ -19,14 +19,14 @@ function timeSince(date) {
 		return interval + " 日前.";
 	interval = Math.floor(seconds / 3600);
 	if (interval > 1)
-		return interval + " 小时前.";
+		return interval + " 小時前.";
 	interval = Math.floor(seconds / 60);
 	if (interval > 1)
-		return interval + " 分钟前.";
+		return interval + " 分鐘前.";
 	/*if(Math.floor(seconds) >= 5)
 		return Math.floor(seconds) + " seconds";*/
 	else
-		return "几秒前.";
+		return "幾秒前.";
 }
 function uptime() {
 	$.getJSON("json/stats.json", function(result) {
@@ -42,13 +42,13 @@ function uptime() {
 			if (!TableRow.length) {
 				$("#servers").append(
 					"<tr id=\"r" + i + "\" data-toggle=\"collapse\" data-target=\"#rt" + i + "\" class=\"accordion-toggle " + hack + "\">" +
-						"<td id=\"status\"><div class=\"progress\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>加载中</small></div></div></td>" +
-						"<td id=\"ip\">加载中</td>" +
-						"<td id=\"name\">加载中</td>" +
-						"<td id=\"type\">加载中</td>" +
-						"<td id=\"type_1\">加载中</td>" +
-						"<td id=\"location\">加载中</td>" +
-						"<td id=\"time\">加载中</td>" +
+						"<td id=\"status\"><div class=\"progress\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>載入中</small></div></div></td>" +
+						"<td id=\"ip\">載入中</td>" +
+						"<td id=\"name\">載入中</td>" +
+						"<td id=\"type\">載入中</td>" +
+						"<td id=\"type_1\">載入中</td>" +
+						"<td id=\"location\">載入中</td>" +
+						"<td id=\"time\">載入中</td>" +
 					"</tr>"
 				);
 				TableRow = $("#servers tr#r" + i);
@@ -97,10 +97,10 @@ function uptime() {
 				var TableRow = $("#servers tr#r" + i)[0];
 				var ExpandRow = $("#servers #rt" + i);
 				TableRow.children["ip"].children[0].children[0].className = "progress-bar progress-bar-error";
-				TableRow.children["ip"].children[0].children[0].innerHTML = "<small>错误</small>";
-				TableRow.children["location"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>错误</small></div></div>";
-				TableRow.children["status"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>错误</small></div></div>";
-				TableRow.children["time"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>错误</small></div></div>";
+				TableRow.children["ip"].children[0].children[0].innerHTML = "<small>錯誤</small>";
+				TableRow.children["location"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>錯誤</small></div></div>";
+				TableRow.children["status"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>錯誤</small></div></div>";
+				TableRow.children["time"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>錯誤</small></div></div>";
 				if(ExpandRow.hasClass("in")) {
 					ExpandRow.collapse("hide");
 				}
@@ -109,12 +109,12 @@ function uptime() {
 			});
 		}
 		error = 1;
-		$("#updated").html("更新错误.");
+		$("#updated").html("更新錯誤.");
 	});
 }
 function updateTime() {
 	if (!error)
-		$("#updated").html("最后更新: " + timeSince(d));
+		$("#updated").html("最後更新: " + timeSince(d));
 }
 uptime();
 updateTime();
